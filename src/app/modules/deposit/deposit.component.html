@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup]="depositForm" (ngSubmit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="email"
+        id="email"
+        placeholder="Enter email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="amount"
+        id="amount"
+        placeholder="Enter Amount"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <div *ngIf="isSubmitted">
+      <app-form-field-errors [control]="email"></app-form-field-errors>
+      <app-form-field-errors [control]="amount"></app-form-field-errors>
+    </div>
+  </form>
+</div>
